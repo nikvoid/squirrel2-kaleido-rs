@@ -148,7 +148,7 @@ public:
 	SQObjectPtr _debughook;
 
 	SQObjectPtr temp_reg;
-	
+	SQObjectPtr unknown_closure;
 
 	CallInfo* _callsstack;
 	SQInteger _callsstacksize;

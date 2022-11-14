@@ -44,6 +44,7 @@ extern "C" {
 #endif
 
 #ifdef _SQ64
+#error "Compiling this for 64bit squirrel may result in errors and undefined behavior. If you sure, remove this line"
 #ifdef _MSC_VER
 typedef __int64 SQInteger;
 typedef unsigned __int64 SQUnsignedInteger;
@@ -157,7 +158,7 @@ typedef char SQChar;
 #define MAX_CHAR 0xFF
 #endif
 
-#define SQUIRREL_VERSION	_SC("Squirrel 2.2.4 stable")
+#define SQUIRREL_VERSION	_SC("Squirrel 2.2.4 for Kaleido ADV Engine")
 #define SQUIRREL_COPYRIGHT	_SC("Copyright (C) 2003-2009 Alberto Demichelis")
 #define SQUIRREL_AUTHOR		_SC("Alberto Demichelis")
 
@@ -245,7 +246,9 @@ typedef union tagSQObjectValue
 typedef struct tagSQObject
 {
 	SQObjectType _type;
+	SQInteger _junk;
 	SQObjectValue _unVal;
+	SQInteger _zeroes;
 }SQObject;
 
 typedef struct tagSQStackInfos{

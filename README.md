@@ -47,4 +47,19 @@ struct SQSharedState {
     SQObjectPtr _registry;
     ...
 };
+
+// sqtable.h
+struct SQTable : public SQDelegable 
+{
+private:
+    struct _HashNode
+    {
+        _HashNode() { next = NULL; }
+        SQObjectPtr val;
+        SQObjectPtr key;
+        _HashNode *next;
+        + SQInteger _junk;
+    };
+    ...
+};
 ```

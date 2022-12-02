@@ -112,8 +112,10 @@ public:
 	SQInteger _nparamscheck;
 	SQIntVec _typecheck;
 	SQObjectPtrVec _outervalues;
+	SQInteger _junk;
 	SQObjectPtr _env;
 	SQFUNCTION _function;
+	SQInteger _junk2;
 	SQObjectPtr _name;
 };
 

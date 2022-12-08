@@ -31,7 +31,7 @@ struct SQOuterVar
 	SQObjectPtr _src;
 };
 
-struct SQLocalVarInfo
+struct alignas(8) SQLocalVarInfo
 {
 	SQLocalVarInfo():_start_op(0),_end_op(0){}
 	SQLocalVarInfo(const SQLocalVarInfo &lvi)

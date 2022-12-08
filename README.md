@@ -88,4 +88,8 @@ struct  SQFunctionProto : public SQRefCounted {
     bool _varparams;
     ...
 };
+
+// sqfuncproto.h
+struct alignas(8) SQLocalVarInfo {...};
+       ^^^^^^^^^^
 ```

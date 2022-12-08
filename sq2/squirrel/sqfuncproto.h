@@ -70,7 +70,7 @@ typedef sqvector<SQLineInfo> SQLineInfoVec;
 			ptr[nl].~type(); \
 	} \
 }
-struct SQFunctionProto : public SQRefCounted
+struct  SQFunctionProto : public SQRefCounted
 {
 private:
 	SQFunctionProto(){
@@ -125,6 +125,8 @@ public:
 	SQInteger GetLine(SQInstruction *curr);
 	bool Save(SQVM *v,SQUserPointer up,SQWRITEFUNC write);
 	static bool Load(SQVM *v,SQUserPointer up,SQREADFUNC read,SQObjectPtr &ret);
+
+	SQInteger _junk;
 
 	SQObjectPtr _sourcename;
 	SQObjectPtr _name;

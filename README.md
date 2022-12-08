@@ -75,4 +75,17 @@ struct SQNativeClosure : public CHAINABLE_OBJ {
     + SQInteger _junk2;
     SQObjectPtr _name;
 };
+
+// sqfuncproto.h
+struct  SQFunctionProto : public SQRefCounted {
+    ...
+    + SQInteger _junk;  
+
+    SQObjectPtr _sourcename;
+    SQObjectPtr _name;
+    SQInteger _stacksize;
+    bool _bgenerator;
+    bool _varparams;
+    ...
+};
 ```

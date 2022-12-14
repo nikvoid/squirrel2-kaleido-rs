@@ -17,6 +17,7 @@ add_library(squirrel STATIC
     sqmem.cpp
     sqvm.cpp
     sqclass.cpp
+    sqextension.cpp
 )
 
 add_compile_options(-O2 -Wall)

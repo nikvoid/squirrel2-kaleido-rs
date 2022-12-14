@@ -40,18 +40,23 @@ struct SQSharedState {
     SQObjectPtrVec *_metamethods;
     + SQInteger _junk;
     SQObjectPtr _metamethodsmap;
-    SQObjectPtrVec *_systemstrings;
-    SQObjectPtrVec *_types;
-    StringTable *_stringtable;
-    RefTable _refs_table;
-    SQObjectPtr _registry;
-    SQObjectPtr _consts;
+    ...
     SQObjectPtr _constructoridx;
 #ifndef NO_GARBAGE_COLLECTOR
     SQCollectable *_gc_chain;
     + SQInteger _junk2;
 #endif
     ...
+    SQCOMPILERERROR _compilererrorhandler;
+    SQPRINTFUNCTION _printfunc; 
+
+    + void* _unk_code_ptr;
+
+    bool _debuginfo;
+    bool _notifyallexceptions;
+private:
+    SQChar *_scratchpad;
+    SQInteger _scratchpadsize;
 };
 
 // sqtable.h

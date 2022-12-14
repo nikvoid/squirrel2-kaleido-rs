@@ -104,6 +104,9 @@ public:
 	
 	SQCOMPILERERROR _compilererrorhandler;
 	SQPRINTFUNCTION _printfunc;
+
+	void* _unk_code_ptr;
+	
 	bool _debuginfo;
 	bool _notifyallexceptions;
 private:

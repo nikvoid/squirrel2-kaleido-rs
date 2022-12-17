@@ -126,7 +126,6 @@ public:
 	bool Save(SQVM *v,SQUserPointer up,SQWRITEFUNC write);
 	static bool Load(SQVM *v,SQUserPointer up,SQREADFUNC read,SQObjectPtr &ret);
 
-	SQInteger _junk;
 
 	SQObjectPtr _sourcename;
 	SQObjectPtr _name;

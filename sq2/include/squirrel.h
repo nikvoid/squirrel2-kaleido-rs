@@ -242,14 +242,21 @@ typedef union tagSQObjectValue
 	SQRawObjectVal raw;
 }SQObjectValue;
 
-
-typedef struct tagSQObject
+typedef
+#ifdef _MSC_VER
+__declspec(align(8)) 
+#endif
+struct tagSQObject 
 {
 	SQObjectType _type;
 	SQInteger _junk;
 	SQObjectValue _unVal;
 	SQInteger _zeroes;
-}SQObject;
+} 
+#ifdef __GNUC__
+ __attribute__((aligned(8)))
+#endif
+SQObject;
 
 typedef struct tagSQStackInfos{
 	const SQChar* funcname;

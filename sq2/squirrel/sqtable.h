@@ -31,7 +31,6 @@ private:
 		SQObjectPtr val;
 		SQObjectPtr key;
 		_HashNode *next;
-		SQInteger _junk;
 	};
 	_HashNode *_firstfree;
 	_HashNode *_nodes;

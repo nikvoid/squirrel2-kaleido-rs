@@ -10,12 +10,21 @@ Known supported games:
 
 ```cpp
 // squirrel.h
-struct SqObject {
+typedef
++ #ifdef _MSC_VER
++ __declspec(align(8)) 
++ #endif
+struct tagSQObject 
+{
     SQObjectType _type;
     + SQInteger _junk;
     SQObjectValue _unVal;
     + SQInteger _zeroes;
-};
+} 
++ #ifdef __GNUC__
++  __attribute__((aligned(8)))
++ #endif
+SQObject;
 
 // sqvm.h
 struct SQVM {
@@ -37,16 +46,6 @@ struct SQVM {
 // sqstate.h
 struct SQSharedState {
     ...
-    SQObjectPtrVec *_metamethods;
-    + SQInteger _junk;
-    SQObjectPtr _metamethodsmap;
-    ...
-    SQObjectPtr _constructoridx;
-#ifndef NO_GARBAGE_COLLECTOR
-    SQCollectable *_gc_chain;
-    + SQInteger _junk2;
-#endif
-    ...
     SQCOMPILERERROR _compilererrorhandler;
     SQPRINTFUNCTION _printfunc; 
 
@@ -57,47 +56,6 @@ struct SQSharedState {
 private:
     SQChar *_scratchpad;
     SQInteger _scratchpadsize;
-};
-
-// sqtable.h
-struct SQTable : public SQDelegable 
-{
-private:
-    struct _HashNode
-    {
-        _HashNode() { next = NULL; }
-        SQObjectPtr val;
-        SQObjectPtr key;
-        _HashNode *next;
-        + SQInteger _junk;
-    };
-    ...
-};
-
-// sqclosure.h
-struct SQNativeClosure : public CHAINABLE_OBJ {
-    ...
-    SQInteger _nparamscheck;
-    SQIntVec _typecheck;
-    SQObjectPtrVec _outervalues;
-    + SQInteger _junk;
-    SQObjectPtr _env;
-    SQFUNCTION _function;
-    + SQInteger _junk2;
-    SQObjectPtr _name;
-};
-
-// sqfuncproto.h
-struct  SQFunctionProto : public SQRefCounted {
-    ...
-    + SQInteger _junk;  
-
-    SQObjectPtr _sourcename;
-    SQObjectPtr _name;
-    SQInteger _stacksize;
-    bool _bgenerator;
-    bool _varparams;
-    ...
 };
 
 // sqfuncproto.h

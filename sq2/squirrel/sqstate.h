@@ -67,7 +67,6 @@ public:
 	static void MarkObject(SQObjectPtr &o,SQCollectable **chain);
 #endif
 	SQObjectPtrVec *_metamethods;
-	SQInteger _junk;
 	SQObjectPtr _metamethodsmap;
 	SQObjectPtrVec *_systemstrings;
 	SQObjectPtrVec *_types;
@@ -78,7 +77,6 @@ public:
 	SQObjectPtr _constructoridx;
 #ifndef NO_GARBAGE_COLLECTOR
 	SQCollectable *_gc_chain;
-	SQInteger _junk2;
 #endif
 	SQObjectPtr _root_vm;
 	SQObjectPtr _table_default_delegate;

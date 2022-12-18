@@ -13,6 +13,7 @@
 #include <new>
 //squirrel stuff
 #include <squirrel.h>
+#include <sqextension.h>
 #include "sqobject.h"
 #include "sqstate.h"
 
